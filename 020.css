@@ -1,0 +1,239 @@
+/* ===== zen-garden-modern.css ===== */
+/* RESET & BASE (gradient now applied in body via HTML style, but we keep fallback) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* fallback background (will be overridden by inline style, but safe) */
+  background: linear-gradient(135deg,#4B2E2B, #8C5A3C);
+  color: #1e2b30;
+  line-height: 1.5;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+}
+
+/* TYPOGRAPHY & COLOR PALETTE */
+h1 {
+  font-size: 3.2rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #2f4858; /* deep teal */
+  margin-bottom: 0.3rem;
+}
+
+h1::before {
+  content: '✦';
+  color: #b86f5c; /* warm terracotta */
+  font-size: 2.8rem;
+  margin-right: 8px;
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 350;
+  font-size: 1.6rem;
+  color: #6f5e53;
+  border-left: 4px solid #b86f5c;
+  padding-left: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 480;
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  color: #2f4858;
+  display: inline-block;
+  border-bottom: 2px solid #b86f5c50;
+  padding-bottom: 0.2rem;
+}
+
+abbr {
+  text-decoration: none;
+  border-bottom: 1px dashed #b86f5c;
+  cursor: help;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #2b3a41;
+  font-size: 1rem;
+  max-width: 75ch;
+}
+
+a {
+  color: #b86f5c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  border-bottom-color: #b86f5c;
+  color: #9e5140;
+}
+
+/* LAYOUT GRID */
+.page-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  background: transparent;
+}
+
+/* CARD STYLES (all content sections) – with extra blur for gradient depth */
+.intro header {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  border: none;
+  margin-bottom: 2rem;
+}
+
+section, article, .explanation, .participation, .benefits, .requirements, footer, .sidebar {
+  background: rgba(240, 240, 240, 0.8);  /* more transparency to show gradient */
+  backdrop-filter: blur(8px);             /* stronger blur for modern glass */
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 28px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 15px 30px -12px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* additional spacing between articles */
+.intro article, .main > div {
+  margin-bottom: 1.8rem;
+}
+
+/* SIDEBAR */
+.sidebar {
+  padding: 1.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.design-selection ul, .design-archives ul, .zen-resources ul {
+  list-style: none;
+  margin-top: 0.6rem;
+}
+
+.design-selection li, .design-archives li, .zen-resources li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(240, 232, 224, 0.8);
+  font-size: 0.95rem;
+}
+
+.design-name {
+  font-weight: 600;
+  color: #2f4858;
+}
+
+.designer-name {
+  color: #6f5e53;
+  font-size: 0.9rem;
+  margin-left: 0.2rem;
+}
+
+.designer-name::before {
+  content: "by ";
+  font-style: italic;
+  color: #aaa29b;
+}
+
+.archives, .resources, .select {
+  font-size: 1.2rem;
+  font-weight: 500;
+  background: rgb(97, 76, 53);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 0.3rem 1rem;
+  border-radius: 40px;
+  display: inline-block;
+  color: #2f4858;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.5rem;
+  background: rgba(242, 235, 229, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-top: 2.5rem;
+  border-radius: 40px;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+footer a {
+  color: #2f4858;
+  font-weight: 450;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+  border: 1px solid transparent;
+  padding: 0.2rem 0.2rem;
+}
+
+footer a:hover {
+  color: #b86f5c;
+  border-bottom: 1px solid;
+}
+
+/* DECORATIVE PSEUDO */
+.preamble h3::after, .explanation h3::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #b86f5c;
+  border-radius: 50%;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* HIDE PRESENTATIONAL EXTRAS */
+.extra1, .extra2, .extra3, .extra4, .extra5, .extra6 {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .page-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    order: 2;
+  }
+  h1 { font-size: 2.8rem; }
+}
+.spline3d{
+	  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* allows clicks to pass through */
+}
